@@ -4,9 +4,21 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <BottomNavigation />
+    <router-view />
   </div>
 </template>
+
+<script>
+import BottomNavigation from '@/components/BottomNavigation.vue';
+
+export default {
+  name: 'App',
+  components: {
+    BottomNavigation,
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
