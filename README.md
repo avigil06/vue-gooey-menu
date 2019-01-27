@@ -1,34 +1,5 @@
 # vue-animated-menu
 
-## Project setup
-```
-npm install
-```
+![](gooey-menu.gif)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+An SVG animated solution inspired by Martha Bergmann's [Gooey Fab](https://dribbble.com/shots/5547236-Gooey-FAB).
