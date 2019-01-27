@@ -1,39 +1,43 @@
 <template>
   <section class="bottom-navigation">
-    <svg
-      class="bottom-navigation__svg"
-      version="1.1"
-      baseProfile="full"
-      width="320"
-      height="56"
-      xmlns="http://www.w3.org/2000/svg">
-      <path :d="this.flatPoints" fill="#fff">
-        <animate
-          ref="toFlat"
-          attributeName="d"
-          dur="300ms"
-          begin="indefinite"
-          :from="curvePoints"
-          :to="flatPoints"
-          fill="freeze" />
-        <animate
-          ref="toCurve"
-          attributeName="d"
-          dur="300ms"
-          begin="indefinite"
-          :from="flatPoints"
-          :to="curvePoints"
-          fill="freeze" />
-      </path>
-    </svg>
-    <NavigationMenu class="nav-container" :secondary="toggled" />
-    <transition name="appear">
-      <button v-show="toggled" class="add-button">
-        <transition name="appear-delay">
-          <font-awesome-icon v-show="toggled" icon="plus" />
-        </transition>
-      </button>
-    </transition>
+    <div class="bottom-navigation__end" />
+    <div class="bottom-navigation__center">
+      <svg
+        class="bottom-navigation__svg"
+        version="1.1"
+        baseProfile="full"
+        width="320"
+        height="56"
+        xmlns="http://www.w3.org/2000/svg">
+        <path :d="this.flatPoints" fill="#fff">
+          <animate
+            ref="toFlat"
+            attributeName="d"
+            dur="300ms"
+            begin="indefinite"
+            :from="curvePoints"
+            :to="flatPoints"
+            fill="freeze" />
+          <animate
+            ref="toCurve"
+            attributeName="d"
+            dur="300ms"
+            begin="indefinite"
+            :from="flatPoints"
+            :to="curvePoints"
+            fill="freeze" />
+        </path>
+      </svg>
+      <NavigationMenu class="nav-container" :secondary="toggled" />
+      <transition name="appear">
+        <button v-show="toggled" class="add-button">
+          <transition name="appear-delay">
+            <font-awesome-icon v-show="toggled" icon="plus" />
+          </transition>
+        </button>
+      </transition>
+    </div>
+    <div class="bottom-navigation__end" />
   </section>
 </template>
 
@@ -105,16 +109,26 @@ export default {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 320px;
+  width: 100vw;
   height: 56px;
-}
-
-.bottom-navigation__svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  display: flex;
+  flex-direction: row;
   filter: drop-shadow( 3px 0px 5px rgba(0, 0, 0, .25));
+
+  &__end {
+    flex-basis: 0px;
+    flex-grow: 1;
+    flex-shrink: 0;
+    height: 56px;
+    background-color: white;
+  }
+
+  &__center {
+    flex-basis: 320px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    position: relative;
+  }
 }
 
 .nav-container {
@@ -132,7 +146,6 @@ export default {
   background-color: #FF3366;
   color: #fff;
   font-size: 24px;
-  filter: drop-shadow( 3px 0px 5px rgba(0, 0, 0, .25));
   border: 0;
   border-radius: 50%;
   height: 56px;
